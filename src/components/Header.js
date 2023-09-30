@@ -24,11 +24,7 @@ export default function Header() {
                 <AppBar position="static" sx={{ background: "transparent", boxShadow: 'none' }}>
                     <Toolbar>
                         <Box sx={{ flexGrow: 0, paddingRight: 3 }}>
-                            <a
-                                href="https://fvm.filecoin.io/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <Link href="/" sx={{}}>
                                 <Image
                                     src="/logo.png"
                                     alt="Retrieve Logo"
@@ -36,7 +32,7 @@ export default function Header() {
                                     height={80}
                                     priority
                                 />
-                            </a>
+                            </Link>
                         </Box>
                         <Box component="div" sx={{ flexGrow: 0 }}>
                             <Link href="/" sx={{}}>

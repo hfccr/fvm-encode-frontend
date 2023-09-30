@@ -30,11 +30,7 @@ export default function Home() {
         <Box>
           <div className={styles.grid}>
             <Box className={styles.card} sx={{ background: 'linear-gradient(135deg,#f08,#d0e)', margin: 2 }}>
-              <a
-                href="https://888-voting.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/dapp/client/about">
                 <Box sx={{ width: 100, height: 100 }}>
                   <PersonIcon sx={{ fontSize: 80 }} />
                 </Box>
@@ -42,7 +38,7 @@ export default function Home() {
                   Client
                 </h2>
                 <p>Incentivize Retrieval For Filecoin Deals</p>
-              </a>
+              </Link>
             </Box>
 
             <Box className={styles.card} sx={{ background: 'linear-gradient(135deg,#d0e,#91f)', margin: 2 }}>
