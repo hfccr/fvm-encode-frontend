@@ -9,16 +9,19 @@ import Connect from "./Connect";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from 'next/image';
-import { Container } from "@mui/material";
+import { Container, Divider } from "@mui/material";
 
 export default function Header() {
     const pathname = usePathname();
     const isHome = pathname === "/" || pathname === undefined;
     return (
-        <Box sx={{ flexGrow: 1, padding: 6 }}>
+        <Box sx={{
+            flexGrow: 1, padding: 6,
+            //  background: "radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(1,1,29,1) 50%, rgba(21,21,69,0) 100%)" 
+        }}
+        >
             <Container maxWidth="xl">
-
-                <AppBar position="static" sx={{ background: "transparent" }}>
+                <AppBar position="static" sx={{ background: "transparent", boxShadow: 'none' }}>
                     <Toolbar>
                         <Box sx={{ flexGrow: 0, paddingRight: 3 }}>
                             <a
@@ -57,6 +60,7 @@ export default function Header() {
                         </Stack>
                     </Toolbar>
                 </AppBar>
+                <Divider sx={{ marginTop: 4, filter: 'filter: invert(0) drop-shadow(0 0 0.3rem #ffffff70)' }} />
             </Container>
         </Box>
     );
