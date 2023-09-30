@@ -9,9 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/krona-one": "^5.0.8",
+    "@fontsource/roboto": "^5.0.8",
+    "@glif/filecoin-address": "^2.0.43",
+    "@mui/icons-material": "^5.14.11",
+    "@mui/material": "^5.14.11",
+    "@rainbow-me/rainbowkit": "^1.0.11",
+    "framer-motion": "^10.16.4",
+    "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "react-hook-form": "^7.46.2",
+    "react-hot-toast": "^2.4.1",
+    "viem": "^1.14.0",
+    "wagmi": "^1.4.2"
   },
   "devDependencies": {
     "eslint": "latest",
