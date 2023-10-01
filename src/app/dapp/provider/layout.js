@@ -21,7 +21,7 @@ export default function ClientLayout({ children }) {
           fontFamily: "Krona One",
           fontSize: "x-large",
           cursor: "pointer",
-          background: 'linear-gradient(135deg,#f08,#d0e)',
+          background: 'linear-gradient(135deg,#d0e,#91f)',
           padding: 4,
           borderRadius: 1,
         }}
