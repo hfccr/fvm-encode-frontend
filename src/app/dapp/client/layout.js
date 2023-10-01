@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 export default function ClientLayout({ children }) {
   const path = usePathname();
   let selected = "about";
-  if (path.indexOf("positions") >= 0) {
-    selected = "positions";
-  } else if (path.indexOf("market") >= 0) {
-    selected = "market";
+  if (path.indexOf("deals") >= 0) {
+    selected = "deals";
+  } else if (path.indexOf('newdeal') >= 0) {
+    selected = "newdeal";
   }
   return (
     <>
@@ -30,6 +30,8 @@ export default function ClientLayout({ children }) {
       </Box>
       <Stack direction="row" sx={{ padding: 2, marginTop: 4 }} spacing={4}>
         <Tabs
+          textColor="secondary"
+          indicatorColor="secondary"
           orientation="vertical"
           variant="standard"
           aria-label="client menu vertical"
@@ -43,23 +45,24 @@ export default function ClientLayout({ children }) {
           }}
         >
           <Tab
-            label="About"
+            color="secondary"
+            label="Retrieve Vault"
             value="about"
             href="/dapp/client/about"
             LinkComponent={Link}
             sx={{ alignItems: "flex-start", fontSize: "large" }}
           />
           <Tab
-            label="Positions"
-            value="positions"
-            href="/dapp/client/positions"
+            label="New Deal"
+            value="newdeal"
+            href="/dapp/client/newdeal"
             LinkComponent={Link}
             sx={{ alignItems: "flex-start", fontSize: "large" }}
           />
           <Tab
-            label="Market"
-            value="market"
-            href="/dapp/client/market"
+            label="Retrieve Deals"
+            value="deals"
+            href="/dapp/client/deals"
             LinkComponent={Link}
             sx={{ alignItems: "flex-start", fontSize: "large" }}
           />

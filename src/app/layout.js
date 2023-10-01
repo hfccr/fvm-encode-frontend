@@ -21,6 +21,8 @@ const customRainbowKitProperties = {
 };
 const rainbowKitTheme = { ...darkTheme(), ...customRainbowKitProperties };
 
+BigInt.prototype.toJSON = function () { return this.toString() }
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

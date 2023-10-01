@@ -10,7 +10,7 @@ import Vault from '@/constants/Vault.json';
 import { parseEther } from 'viem';
 
 export function GetFromVault() {
-    const [value, setValue] = React.useState(1);
+    const [value, setValue] = React.useState(0);
     const debouncedValue = useDebounce(value)
 
     const {
