@@ -6,20 +6,20 @@ import {
 } from 'wagmi'
 import { Box, Button, TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import { useDebounce } from '@/hooks/useDebounce'
-import Appeals from '@/constants/Appeals.json';
+import Providers from '@/constants/Providers.json';
 import { parseEther } from 'viem';
 
-export function AppealButton({ id }) {
-    const [open, setOpen] = React.useState(true);
+export function ConfirmButton({ id }) {
+    const [open, setOpen] = React.useState(false);
 
     const {
         config,
         error: prepareError,
         isError: isPrepareError,
     } = usePrepareContractWrite({
-        address: Appeals.address,
-        abi: Appeals.abi,
-        functionName: 'createAppeal',
+        address: Providers.address,
+        abi: Providers.abi,
+        functionName: 'acceptRetrievalDealProposal',
         args: [id],
         enabled: true,
     })
@@ -40,7 +40,7 @@ export function AppealButton({ id }) {
     return (
         <>
             <Button type="submit" color="secondary" variant="outlined" disabled={!write || isLoading} onClick={handleOpen}>
-                {isLoading ? 'Appealing...' : 'Appeal'}
+                {isLoading ? 'Confirming...' : 'Confirm'}
             </Button>
             <Dialog
                 open={open}
@@ -49,23 +49,24 @@ export function AppealButton({ id }) {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Create Appeal"}
+                    {"Confirm Proposal"}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Are you sure you want to create an appeal for this deal? The appeal fee will be deducted from your vault balance.
-                        <div>
-                            <div>Prepare Error</div>
-                            <div>{prepareError?.message}</div>
-                            <div>Normal Error</div>
-                            <div>{error?.message}</div>
-                        </div>
+                        Are you sure you want to confirm this deal?
+                        You will have to provide retrieval for the Piece CID associated with the data for the duration of the deal.
+                        The collateral will be deducted from your vault balance.
+                        You will be slashed if you fail to provide retrieval service for the data.
+                        You can claim the value of the contract and the collateral after you have successfully provided retrieval services.
+                        <div>{prepareError?.message}</div>
+                        <div>Normal Error</div>
+                        <div>{error?.message}</div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={() => { write?.(); handleClose() }}>
-                        Create Appeal
+                        Confirm
                     </Button>
                 </DialogActions>
             </Dialog>
