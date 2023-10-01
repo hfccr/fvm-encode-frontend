@@ -36,11 +36,11 @@ export default function EmulateView({ }) {
                 {minerError && (
                     <Alert severity="error">Failed to fetch miner info</Alert>
                 )}
-                {minerSuccess && minerId !== 0 && (
+                {minerSuccess && minerId.toString() !== '0' && (
                     <Typography sx={{ marginBottom: 4 }}>Your address is associated with miner id {minerId.toString()}</Typography>
                 )}
             </Stack>
-            {minerSuccess && minerId === 0 && (
+            {minerSuccess && minerId.toString() === '0' && (
                 <EmulateMiner />
             )}
         </Box>
