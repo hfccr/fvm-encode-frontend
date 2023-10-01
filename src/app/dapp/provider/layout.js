@@ -4,7 +4,7 @@ import { Tab, Box, Divider, Stack, Tabs, Typography } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function ClientLayout({ children }) {
+export default function ProviderLayout({ children }) {
   const path = usePathname();
   let selected = "about";
   if (path.indexOf("deals") >= 0) {
