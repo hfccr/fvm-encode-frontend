@@ -4,7 +4,7 @@ import {
     useContractWrite,
     useWaitForTransaction,
 } from 'wagmi'
-import { Box, Button, TextField, Stack } from '@mui/material';
+import { Box, Button, TextField, Stack, Alert } from '@mui/material';
 import { useDebounce } from '@/hooks/useDebounce'
 import Deals from '@/constants/Deals.json';
 import { parseEther } from 'viem';
@@ -85,7 +85,9 @@ export function NewDeal() {
             </Box>
             {isSuccess && (
                 <div>
-                    Successfully Created A New Retrieval Deal Proposal!
+                    <Alert>
+                        Successfully Created A New Retrieval Deal Proposal!
+                    </Alert>
                     <Box sx={{ textAlign: 'center' }}>
                         <Button href={`https://fvm.starboard.ventures/calibration/explorer/tx/${data?.hash}`}>View On Starboard</Button>
                     </Box>

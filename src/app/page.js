@@ -42,11 +42,7 @@ export default function Home() {
             </Box>
 
             <Box className={styles.card} sx={{ background: 'linear-gradient(135deg,#d0e,#91f)', margin: 2 }}>
-              <a
-                href="https://888-voting.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/dapp/provider/about">
                 <Box sx={{ width: 100, height: 100 }}>
                   <SaveIcon sx={{ fontSize: 80 }} />
                 </Box>
@@ -54,7 +50,7 @@ export default function Home() {
                   Provider
                 </h2>
                 <p>Earn More By Providing Retrieval Services</p>
-              </a>
+              </Link>
             </Box>
 
 
