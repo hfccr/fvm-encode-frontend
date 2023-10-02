@@ -57,11 +57,7 @@ export default function Home() {
           </div>
           <div className={styles.grid}>
             <Box className={styles.card} sx={{ background: 'linear-gradient(135deg,#91f,#70f)', margin: 2 }}>
-              <a
-                href="https://888-voting.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/dapp/referee/about">
                 <Box sx={{ width: 100, height: 100 }}>
                   <SportsIcon sx={{ fontSize: 80 }} />
                 </Box>
@@ -71,10 +67,10 @@ export default function Home() {
                 <p>
                   Maintain the protocol by evaluating client appeals
                 </p>
-              </a>
+              </Link>
             </Box>
             <Box className={styles.card} sx={{ background: 'linear-gradient(135deg,#70f,#40f)', margin: 2 }}>
-              <Link href="/dapp/govern/power">
+              <Link href="/dapp/govern">
                 <Box sx={{ width: 100, height: 100 }}>
                   <SettingsIcon sx={{ fontSize: 80 }} />
                 </Box>
