@@ -32,10 +32,16 @@ function formatBytes(bytes, decimals = 2) {
 
 const columns = [
   {
-    field: 'id', headerName: 'Appeal', renderCell: (params) => {
-      return (
-        <AppealButton id={params.row.id} />
-      );
+    field: 'id', headerName: 'Status', width: 128, renderCell: (params) => {
+      if (params.row.status === 1) {
+        return <>Submitted</>
+      } else if (params.row.status === 3) {
+        return (
+          <AppealButton id={params.row.id} />
+        );
+      } else {
+        return <>Ended</>
+      }
     }
   },
   { field: 'deal_id', headerName: 'Deal ID' },
@@ -69,7 +75,6 @@ export default function DealsTable({ deals, ownerAddress }) {
           },
         }}
         pageSizeOptions={[5, 10]}
-        density='compact'
       />
     </div>
   );

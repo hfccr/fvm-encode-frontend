@@ -10,13 +10,15 @@ import Deals from '@/constants/Deals.json';
 import { parseEther } from 'viem';
 
 export function NewDeal() {
-    const [dealId, setDealId] = React.useState(138085);
+    const [dealId, setDealId] = React.useState(138178);
     const [providerCollateral, setProviderCollateral] = React.useState(2);
     const [value, setValue] = React.useState(1);
-    const appealAddresses = ['0x93d53c4E12028D69cfeA0F4d5c213655d091b964'];
+    const [appealAddresses, setAppealAddress] = React.useState('0x93d53c4E12028D69cfeA0F4d5c213655d091b964');
+    // const appealAddresses = ['0x93d53c4E12028D69cfeA0F4d5c213655d091b964'];
     const debouncedDealId = useDebounce(dealId)
     const debouncedProviderCollateral = useDebounce(providerCollateral);
     const debouncedValue = useDebounce(value);
+    const debouncedAppealAddresses = useDebounce(appealAddresses);
 
     const {
         config,
@@ -26,8 +28,8 @@ export function NewDeal() {
         address: Deals.address,
         abi: Deals.abi,
         functionName: 'createRetrievalProposalForExistingDeal',
-        args: [debouncedDealId, debouncedProviderCollateral, debouncedValue, appealAddresses],
-        enabled: Boolean(debouncedDealId && debouncedProviderCollateral && debouncedValue)
+        args: [debouncedDealId, debouncedProviderCollateral, debouncedValue, [debouncedAppealAddresses]],
+        enabled: Boolean(debouncedDealId && debouncedProviderCollateral && debouncedValue && debouncedAppealAddresses)
     })
     const { data, error, isError, write } = useContractWrite(config)
 
@@ -42,7 +44,7 @@ export function NewDeal() {
                 write?.()
             }}
         >
-            <Stack spacing={3} direction="row">
+            <Stack spacing={3} justifyContent="center" direction="row" sx={{ margin: 0 }}>
                 <TextField
                     id="dealId"
                     label="Filecoin Deal ID"
@@ -65,6 +67,8 @@ export function NewDeal() {
                     value={providerCollateral}
                     onChange={(e) => setProviderCollateral(e.target.value)}
                 />
+            </Stack>
+            <Stack spacing={3} justifyContent="center" direction="row" sx={{ margin: 6 }}>
                 <TextField
                     id="value"
                     label="Deal Value In FIL"
@@ -76,9 +80,20 @@ export function NewDeal() {
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />
+                <TextField
+                    id="appealAddress"
+                    label="Appeal Address"
+                    type="text"
+                    required={true}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    value={appealAddresses}
+                    onChange={(e) => setAppealAddress(e.target.value)}
+                />
 
             </Stack>
-            <Box sx={{ textAlign: 'center', margin: 1 }}>
+            <Box sx={{ textAlign: 'center', margin: 3 }}>
                 <Button type="submit" color="secondary" variant="outlined" disabled={!write || isLoading}>
                     {isLoading ? 'Creating Deal Proposal...' : 'Create Deal Proposal'}
                 </Button>

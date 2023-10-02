@@ -16,6 +16,7 @@ import { formatEther } from "viem";
 import DealsTable from "./DealsTable";
 import { useAllProviderDealsIds, useMinerId } from "@/hooks/useProvider";
 import ProviderDealsTable from "./ProviderDealsTable";
+import RefereeDealsTable from "./RefereeDealsTable";
 
 export default function RefereeDealsView({ }) {
   const [hydrated, setHydrated] = useState(false);
@@ -51,7 +52,7 @@ export default function RefereeDealsView({ }) {
           <Alert>Failed to fetch deals</Alert>
         )}
         {dealsSuccess && minerSuccess && (
-          <ProviderDealsTable deals={myDeals} />
+          <RefereeDealsTable deals={myDeals} />
         )}
       </Stack>
     </Box>

@@ -35,11 +35,9 @@ const columns = [
   {
     field: 'id', headerName: 'Status', width: 128, renderCell: (params) => {
       if (params.row.status === 3) {
-        return <>Accepted</>
+        return <Button color="secondary" variant="outlined">Slash</Button>
       } else if (params.row.status === 1) {
-        return (
-          <ConfirmButton id={params.row.id} />
-        );
+        return <>Pending</>
       } else {
         return <>Ended</>
       }
@@ -64,7 +62,7 @@ const columns = [
   // },
 ];
 
-export default function ProviderDealsTable({ deals, ownerAddress }) {
+export default function RefereeDealsTable({ deals, ownerAddress }) {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid

@@ -58,9 +58,6 @@ export function ConfirmButton({ id }) {
                         The collateral will be deducted from your vault balance.
                         You will be slashed if you fail to provide retrieval service for the data.
                         You can claim the value of the contract and the collateral after you have successfully provided retrieval services.
-                        <div>{prepareError?.message}</div>
-                        <div>Normal Error</div>
-                        <div>{error?.message}</div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

@@ -49,14 +49,14 @@ export function EmulateReferee() {
                         </Box>
                     </div>
                 )}
-                {(isPrepareError || isError) && (
+                {/* {(isPrepareError || isError) && (
                     <div>
                         <div>Prepare Error</div>
                         <div>{prepareError?.message}</div>
                         <div>Normal Error</div>
                         <div>{error?.message}</div>
                     </div>
-                )}
+                )} */}
             </form>
         </Box>
     )

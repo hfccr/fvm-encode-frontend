@@ -10,7 +10,7 @@ import Appeals from '@/constants/Appeals.json';
 import { parseEther } from 'viem';
 
 export function AppealButton({ id }) {
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
 
     const {
         config,
@@ -54,12 +54,6 @@ export function AppealButton({ id }) {
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         Are you sure you want to create an appeal for this deal? The appeal fee will be deducted from your vault balance.
-                        <div>
-                            <div>Prepare Error</div>
-                            <div>{prepareError?.message}</div>
-                            <div>Normal Error</div>
-                            <div>{error?.message}</div>
-                        </div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

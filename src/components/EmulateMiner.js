@@ -10,7 +10,7 @@ import Providers from '@/constants/Providers.json';
 import { parseEther } from 'viem';
 
 export function EmulateMiner() {
-    const [minerId, setMinerId] = React.useState(17840);
+    const [minerId, setMinerId] = React.useState(17387);
     const debouncedMinerId = useDebounce(minerId);
     const endpoint = 'https://fvm.filecoin.io/';
     const {
