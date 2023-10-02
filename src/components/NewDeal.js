@@ -13,7 +13,7 @@ export function NewDeal() {
     const [dealId, setDealId] = React.useState(138085);
     const [providerCollateral, setProviderCollateral] = React.useState(2);
     const [value, setValue] = React.useState(1);
-    const appealAddresses = ['0x7D4C6f7Aa766872881027ba10C06Ee35Dd530ce4'];
+    const appealAddresses = ['0x93d53c4E12028D69cfeA0F4d5c213655d091b964'];
     const debouncedDealId = useDebounce(dealId)
     const debouncedProviderCollateral = useDebounce(providerCollateral);
     const debouncedValue = useDebounce(value);
